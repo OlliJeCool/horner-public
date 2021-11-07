@@ -10,13 +10,26 @@ namespace Horner
     {
         public void Run()
         {
-            double[] input = new double[] { 1, 4, 6, 4, 1 };
-            var horner = new Horner();
-            var output = horner.SolveHorner(input);
-            for (int i = 0; i < output.Length; i++)
+            double[] input = GetInput();
+            var horner = new Horner() { _input = input };
+            horner.WriteHorner(horner.SolveHorner(horner.GetDivisors()));
+        }
+
+
+        public double[] GetInput()
+        {
+            int degree;
+            Console.Write("Zadej stupeň polynomu: ");
+            int.TryParse(Console.ReadLine(), out degree);
+            double[] output = new double[degree + 1];
+            for (int i = degree; i >= 0; i--)
             {
-                Console.WriteLine(output[i]);
+                double temp;
+                Console.Write($"Zadej a_{i}: ");
+                double.TryParse(Console.ReadLine(), out temp);
+                output[i] = temp;
             }
+            return output;
         }
     }
 }

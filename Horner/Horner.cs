@@ -28,13 +28,14 @@ namespace Horner
                     {
                         temp = (divisors[i] * temp) + input[j];
                         shorter[j] = temp;
-                        
+
                     }
                     if (temp == 0)
                     {
                         WriteStep(input, shorter, divisors[i]);
                         output[k] = divisors[i];
                         Array.Copy(shorter, input, shorter.Length);
+                        break;
                     }
                 }
             }
@@ -46,7 +47,11 @@ namespace Horner
             Console.Write($"X = ");
             for (int i = 0; i < input.Length; i++)
             {
-                Console.Write($"{input[i]}, ");
+                if (input[i] == 0) { continue; }
+                else
+                {
+                    Console.Write($"{input[i]}, ");
+                }
             }
             Console.WriteLine("\n");
             foreach (double number in input)
@@ -73,7 +78,7 @@ namespace Horner
 
         public void WriteStep(double[] a, double[] b, double d)
         {
-            foreach(double inputnum in a)
+            foreach (double inputnum in a)
             {
                 Console.Write($"   {inputnum}     ");
             }
@@ -82,7 +87,7 @@ namespace Horner
             Console.Write($"\n{d}  0");
             for (int i = 1; i < a.Length; i++)
             {
-                Console.Write($"     {d * b[i-1]}  ");
+                Console.Write($"     {d * b[i - 1]}  ");
             }
             Console.WriteLine("\n---------------------------------------------------");
             for (int j = 0; j < b.Length; j++)

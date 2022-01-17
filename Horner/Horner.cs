@@ -84,15 +84,15 @@ namespace Horner
             }
             Console.WriteLine();
             Console.WriteLine();
-            Console.Write($"\n{d}  0");
+            Console.Write($"\n{d}  0  ");
             for (int i = 1; i < a.Length; i++)
             {
-                Console.Write($"     {d * b[i - 1]}  ");
+                Console.Write($"     {d * b[i - 1]}    ");
             }
             Console.WriteLine("\n---------------------------------------------------");
             for (int j = 0; j < b.Length; j++)
             {
-                Console.Write($"   {b[j]}     ");
+                Console.Write($"   {b[j]}      ");
             }
             Console.WriteLine("\n\n\n\n\n");
         }

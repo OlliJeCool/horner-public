@@ -22,12 +22,15 @@ namespace Horner
             Console.Write("Zadej stupeň polynomu: ");
             int.TryParse(Console.ReadLine(), out degree);
             double[] output = new double[degree + 1];
+            int tempnum = degree;
             for (int i = 0; i <= degree; i++)
             {
                 double temp;
-                Console.Write($"Zadej a_{i}: ");
+                Console.Write($"Zadej a_{tempnum}: ");
                 double.TryParse(Console.ReadLine(), out temp);
                 output[i] = temp;
+                tempnum--;
+                
             }
             return output;
         }
